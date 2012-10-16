@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Bootstrap, from Twitter</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="@Alchemycs">
+
+    <!-- Le styles -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <style type="text/css">
+        body {
+            padding-top: 60px;
+            padding-bottom: 40px;
+        }
+        [ng\:cloak], [ng-cloak], .ng-cloak {
+            display: none;
+        }      
+    </style>
+    <link href="css/bootstrap-responsive.min.css" rel="stylesheet">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <!--
+    <link rel="shortcut icon" href="../assets/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
+    -->
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="#">Project name</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li class="active"><a href="#">Home</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container" ng-app="app" >
+
+        <h1>Bootstrap starter template</h1>
+        <p>Use this document as a way to quick start any new project.<br> All you get is this message and a barebones HTML document.</p>
+
+        <div ng-controller="NewsController">
+            <div class="well form-search">
+                <input type="text" class="search-query" placeholder="whistleblowers" ng-model="query"/> <button type="button" class="btn btn-primary icon-search" ng-click="doSearch()" ng-disabled="!query"> Search</button>
+            </div>
+    
+            <div class="alert alert-info ng-cloak" ng-hide="news">
+                No news results.
+            </div>
+            <div ng-repeat="report in news" class="ng-cloak">
+                <a ng-href="report.unescapedUrl" ng-bind-html-unsafe="report.title" target="_report"></a>
+                <blockquote>
+                    <div ng-bind-html="report.content"></div>
+                    <a ng-href="report.unescapedUrl" target="_report">read more</a>
+                    <small ng-bind-template="{{report.publisher}}, {{report.publishedDate}}"></small>
+                </blockquote>
+            </div>
+            <div class="alert">
+                <b>Attention:</b> the YQL google news table appears to be flakey
+                with others reporting the same issue that it often returns an 
+                empty result set. The news service is here as an example only on 
+                how to extend the yql service.
+            </div>
+    
+    <pre>
+            <div ng-bind="news|json">
+            
+            </div>
+            </pre>
+        </div>
+
+    </div>
+
+    </div> <!-- /container -->
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.2/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.2/angular-resource.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.2/angular-sanitize.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.1/underscore-min.js"></script>
+    <script src="js/app/app.js"></script>
+    <script src="js/app/services.js"></script>
+    <script src="js/app/directives.js"></script>
+    <script src="js/app/filters.js"></script>
+    <script src="js/app/controllers.js"></script>
+
+  </body>
+</html>
